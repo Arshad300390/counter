@@ -1,15 +1,26 @@
+// Core
+import { createSelector } from "reselect";
 
-export const selectFirstScore = (state) => {
-  console.log("computing based on basic redux-selector 1st");
-    return state.counter.firstScore;
-  };
-  
-export const selectSecondScore = (state) => {
-  console.log("computing based on basic redux-selector 2nd");
-    return state.counter.secondScore;
-  };
-  
-  export const selectThirdScore = (state) => {
-    console.log("computing based on basic redux-selector 3rd");
-    return state.counter.thirdScore;
-  };
+export const selectFirstScore = createSelector(
+  (state) => state.counter.firstScore,
+  (firstScore) => {
+    console.log("computing based on 'reselect' 1st ");
+    return firstScore
+  }
+);
+
+export const selectSecondScore = createSelector(
+  (state) => state.counter.secondScore,
+  (secondScore) => {
+    console.log("computing based on 'reselect' 2nd ");
+    return secondScore
+  }
+);
+
+export const selectThirdScore = createSelector(
+  (state) => state.counter.thirdScore,
+  (thirdScore) => {
+    console.log("computing based on 'reselect' 3rd ");
+    return thirdScore;
+  }
+);
